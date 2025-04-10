@@ -1,7 +1,6 @@
-好的，我已经将你提供的详细说明精简并整合到之前的 README 草稿中。重点放在了 config.json 的配置解释部分，并增加了一个关于缓存机制的小节。
 
-# Go Cloudflare DDNS Updater (你的项目名称)
-
+# cloudflare-ddns 
+Go Cloudflare DDNS Updater .
 一个使用 Go 语言编写的 Cloudflare 动态 DNS (DDNS) 更新工具。
 
 该脚本会自动检测指定网络接口的公网 IP 地址（支持 IPv4 和 IPv6），并调用 Cloudflare API v4 来更新（或创建）相应的 DNS 记录。它还包含缓存机制，以减少不必要的 API 调用。
