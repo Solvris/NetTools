@@ -28,16 +28,15 @@ Go Cloudflare DDNS Updater .
 
 1.  **获取代码:**
     ```bash
-    git clone https://github.com/你的用户名/你的仓库名.git
-    cd 你的仓库名
+    https://github.com/Solvris/NetTools.git
     ```
-    或直接下载 `ddns-cl.go` 文件。
+    或直接下载 `cloudflare-ddns.go` 文件。
 
 2.  **编译 (推荐):**
     ```bash
-    go build ddns-cl.go
+    go build cloudflare-ddns.go
     ```
-    生成 `ddns-cl` 可执行文件。
+    生成 `cloudflare-ddns.go` 可执行文件。
 
 3.  **创建配置文件 (`config.json`):**
     在项目目录（或你希望存放配置的地方）创建 `config.json`。复制以下内容并根据你的实际情况修改：
@@ -93,12 +92,13 @@ Go Cloudflare DDNS Updater .
 ## 💡 使用方法
 
 *   **如果已编译:**
+*   假设编译的二进制为 ddns-cl
     ```bash
     ./ddns-cl -f /path/to/your/config.json
     ```
 *   **如果直接运行 Go 文件:**
     ```bash
-    go run ddns-cl.go -f /path/to/your/config.json
+    go run cloudflare-ddns.go -f /path/to/your/config.json
     ```
     (请将路径替换为实际路径)
 
@@ -106,7 +106,7 @@ Go Cloudflare DDNS Updater .
 使用 `crontab -e` 添加定时任务条目，实现自动化运行。例如，每 5 分钟运行一次：
 
 ```bash
-*/5 * * * * /path/to/solvris -f /path/to/config.json >> /path/to/logfile.log 2>&1
+*/5 * * * * /path/to/ddns-cl -f /path/to/config.json >> /path/to/logfile.log 2>&1
 ```
 
 #### 注意事项：
