@@ -102,39 +102,60 @@ Go Cloudflare DDNS Updater .
     ```
     (请将路径替换为实际路径)
 
-## ⏳ 自动化运行 (Cron)
+### 4. ⏳ 自动化运行 (Cron)
+使用 `crontab -e` 添加定时任务条目，实现自动化运行。例如，每 5 分钟运行一次：
 
-使用 `crontab -e` 添加类似条目（示例：每 5 分钟运行一次）：
+```bash
+*/5 * * * * /path/to/solvris -f /path/to/config.json >> /path/to/logfile.log 2>&1
+```
 
-```crontab
-*/5 * * * * /path/to/your/ddns-cl -f /path/to/your/config.json >> /path/to/logfile.log 2>&1
+#### 注意事项：
+- 使用绝对路径指向可执行文件和配置文件。
+- `/path/to/logfile.log` 用于记录日志（可选）。
+- 如果不需要日志，可以省略 `>> /path/to/logfile.log 2>&1`。
 
+---
 
-确保使用绝对路径指向可执行文件和配置文件。
+## 📜 许可证
 
->> /path/to/logfile.log 2>&1 用于记录日志（可选）。
+本项目采用 **BSD 许可证**，具体内容如下：
 
-📜 许可证
+```text
+BSD 3-Clause License
 
-(建议添加一个许可证，例如 MIT)
+Copyright (c) [2025] [Solrivs]
+All rights reserved.
 
-MIT License
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
 
-Copyright (c) [年份] [你的名字或组织名]
+1. Redistributions of source code must retain the above copyright notice,
+   this list of conditions and the following disclaimer.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-... (完整的 MIT 许可证文本) ...
-IGNORE_WHEN_COPYING_START
-content_copy
-download
-Use code with caution.
-IGNORE_WHEN_COPYING_END
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
 
-希望这个工具对你有帮助！
+3. Neither the name of the copyright holder nor the names of its contributors
+   may be used to endorse or promote products derived from this software
+   without specific prior written permission.
 
-这样应该更清晰地解释了 `zone_id` 和 `work_dir` 的配置以及 IP 缓存的工作方式和相关要求。
-IGNORE_WHEN_COPYING_START
-content_copy
-download
-Use code with caution.
-IGNORE_WHEN_COPYING_END
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+```
+## 🤝 贡献指南
+
+欢迎提交 Issues 或 Pull Requests！如果你希望为项目做出贡献，请遵循以下步骤：
+1. Fork 本项目。
+2. 创建一个新的分支（`git checkout -b feature/your-feature-name`）。
+3. 提交更改（`git commit -m 'Add some feature'`）。
+4. 推送到分支（`git push origin feature/your-feature-name`）。
+5. 提交 Pull Request。
